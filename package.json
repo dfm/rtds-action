@@ -19,7 +19,8 @@
   "homepage": "https://github.com/dfm/rtds-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/github": "^4.0.0"
+    "@actions/github": "^4.0.0",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3"
