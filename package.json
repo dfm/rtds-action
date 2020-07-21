@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Interface GitHub Actions and ReadTheDocs",
   "main": "index.js",
+  "scripts": {
+    "package": "ncc build index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dfm/rtds-action.git"
