@@ -36,5 +36,6 @@ jobs:
         env:
           RTDS_WEBHOOK_ID: ${{ secrets.RTDS_WEBHOOK_ID }}
           RTDS_WEBHOOK_TOKEN: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
+          GITHUB_REF: ${{ github.ref }}
         run: |
-          curl -X POST -d "token=$RTDS_WEBHOOK_TOKEN" https://readthedocs.org/api/v2/webhook/$RTDS_WEBHOOK_ID/
+          curl -X POST -d "branches=$GITHUB_REF" -d "token=$RTDS_WEBHOOK_TOKEN" https://readthedocs.org/api/v2/webhook/$RTDS_WEBHOOK_ID/
