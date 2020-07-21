@@ -33,6 +33,6 @@ jobs:
 
       - name: Trigger RTDs build
         uses: ./
-        env:
+        with:
           webhook_id: ${{ secrets.RTDS_WEBHOOK_ID }}
           webhook_token: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
