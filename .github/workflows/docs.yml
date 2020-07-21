@@ -30,3 +30,11 @@ jobs:
         with:
           name: notebooks-for-${{ github.sha }}
           path: docs/tutorials
+
+      - name: Trigger RTDs build
+        shell: bash
+        env:
+          RTDS_WEBHOOK_ID: ${{ secrets.RTDS_WEBHOOK_ID }}
+          RTDS_WEBHOOK_TOKEN: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
+        run: |
+          curl -X POST -d "token=$RTDS_WEBHOOK_TOKEN" https://readthedocs.org/api/v2/webhook/$RTDS_WEBHOOK_ID/
