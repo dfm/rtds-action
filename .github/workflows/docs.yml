@@ -32,7 +32,7 @@ jobs:
           path: docs/tutorials
 
       - name: Trigger RTDs build
-        uses: .
+        uses: ./
         env:
           RTDS_WEBHOOK_ID: ${{ secrets.RTDS_WEBHOOK_ID }}
           RTDS_WEBHOOK_TOKEN: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
