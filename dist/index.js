@@ -168,8 +168,8 @@ const github = __webpack_require__(469);
 const fetch = __webpack_require__(454);
 
 try {
-  const webhookId = core.getInput("webhook_id");
-  const webhookToken = core.getInput("webhook_token");
+  const webhookId = core.getInput("webhook_id", { required: true });
+  const webhookToken = core.getInput("webhook_token", { required: true });
   console.log(webhookId);
 
   // Extract the branch name from the ref

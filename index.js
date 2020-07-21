@@ -3,8 +3,8 @@ const github = require("@actions/github");
 const fetch = require("node-fetch");
 
 try {
-  const webhookId = core.getInput("webhook_id");
-  const webhookToken = core.getInput("webhook_token");
+  const webhookId = core.getInput("webhook_id", { required: true });
+  const webhookToken = core.getInput("webhook_token", { required: true });
   console.log(webhookId);
 
   // Extract the branch name from the ref
