@@ -170,6 +170,7 @@ const fetch = __webpack_require__(454);
 try {
   const webhookId = core.getInput("webhook_id");
   const webhookToken = core.getInput("webhook_token");
+  console.log(webhookId);
 
   // Extract the branch name from the ref
   const ref = github.context.payload.ref;
@@ -178,18 +179,23 @@ try {
 
   // Format the URL and parameters
   const url = `https://readthedocs.org/api/v2/webhook/${webhookId}/`;
+  console.log(url);
   const params = new URLSearchParams();
   params.append("branches", branchname);
   params.append("token", webhookToken);
 
   // Execute the request
   (async () => {
-    const response = await fetch(url, {
-      method: "POST",
-      body: params,
-    });
-    const json = await response.json();
-    console.log(json);
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: params,
+      });
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      core.setFailed(error.message);
+    }
   })();
 } catch (error) {
   core.setFailed(error.message);
