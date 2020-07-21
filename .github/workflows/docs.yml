@@ -38,4 +38,4 @@ jobs:
           RTDS_WEBHOOK_TOKEN: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
           GITHUB_REF: ${{ github.ref }}
         run: |
-          curl -X POST -H "Token: $RTDS_WEBHOOK_TOKEN" -d "branches=main" https://readthedocs.org/api/v2/webhook/$RTDS_WEBHOOK_ID/
+          curl -X POST -d "branches=main" -d "token=$RTDS_WEBHOOK_TOKEN" https://readthedocs.org/api/v2/webhook/$RTDS_WEBHOOK_ID/
