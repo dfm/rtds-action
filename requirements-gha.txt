@@ -1,5 +1,5 @@
 numpy
 matplotlib
-jupyter_client
+jupyter
 nbconvert
 jupytext
