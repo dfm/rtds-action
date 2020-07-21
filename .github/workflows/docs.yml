@@ -32,11 +32,7 @@ jobs:
           path: docs/tutorials
 
       - name: Trigger RTDs build
-        shell: bash
+        uses: .
         env:
           RTDS_WEBHOOK_ID: ${{ secrets.RTDS_WEBHOOK_ID }}
           RTDS_WEBHOOK_TOKEN: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
-          GITHUB_REF: ${{ github.ref }}
-        run: |
-          echo $GITHUB_REF | awk '{n=split($0, a, "/");r=s="";for(i=3;i<n;i++){r=r s a[i];s="/";}print r}'
-          curl -X POST -d "branches=`echo $GITHUB_REF | awk '{n=split($0, a, "/");r=s="";for(i=3;i<n;i++){r=r s a[i];s="/";}print r}'`" -d "token=$RTDS_WEBHOOK_TOKEN" https://readthedocs.org/api/v2/webhook/$RTDS_WEBHOOK_ID/
