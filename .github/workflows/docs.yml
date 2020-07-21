@@ -1,0 +1,32 @@
+name: Docs
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  notebooks:
+    name: "Build the notebooks for the docs"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install -r requirements-gha.txt
+
+      - name: Execute the notebooks
+        run: |
+          jupytext --to ipynb --execute docs/tutorials/*.py
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: notebooks-for-${{ github.sha }}
+          path: path/to/artifact
