@@ -1,8 +1,8 @@
 name: "ReadTheDocs Trigger"
 description: "Trigger a build on ReadTheDocs"
 inputs:
-  webhook_id:
-    description: "The webhook ID from ReadTheDocs. The API URL will have the form: readthedocs.org/api/v2/webhook/{webhook_id}/"
+  webhook_url:
+    description: "The webhook URL from ReadTheDocs. This till have the form: https://readthedocs.org/api/v2/webhook/{webhook_id}/"
     required: true
   webhook_token:
     description: "The webhook token from ReadTheDocs"
