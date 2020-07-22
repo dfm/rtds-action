@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
+// const github = require("@actions/github");
 const fetch = require("node-fetch");
 
 try {
@@ -7,7 +7,8 @@ try {
   const webhookToken = core.getInput("webhook_token", { required: true });
 
   // Extract the branch name from the ref
-  const ref = github.context.payload.ref;
+  // const ref = github.context.payload.ref;
+  const ref = core.getInput("commit_ref", { required: true });
   const branchname = ref.split("/").slice(2).join("/");
 
   // Format the request parameters

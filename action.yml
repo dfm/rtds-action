@@ -7,6 +7,9 @@ inputs:
   webhook_token:
     description: "The webhook token from ReadTheDocs"
     required: true
+  commit_ref:
+    description: "The reference for the current commit. Can be accessed using ${{ github.ref }}"
+    required: true
 runs:
   using: "node12"
   main: "compiled/index.js"
