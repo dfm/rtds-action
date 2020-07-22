@@ -40,9 +40,8 @@ docs using this package. The rendered page is available at
 2. Next, go to the admin page for your project on ReadTheDocs, click on
    `Integrations` (the URL is something like
    `https://readthedocs.org/dashboard/YOUR_PROJECT_NAME/integrations/`).
-3. Remove existing integrations.
-4. Click `Add integration` and select `Generic API incoming webhook`.
-5. Take note of the webhook `URL` and `token` on this page for use later.
+3. Click `Add integration` and select `Generic API incoming webhook`.
+4. Take note of the webhook `URL` and `token` on this page for use later.
 
 ### 2. Set up GitHub Actions workflow
 
