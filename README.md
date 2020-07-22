@@ -43,6 +43,11 @@ docs using this package. The rendered page is available at
 3. Click `Add integration` and select `Generic API incoming webhook`.
 4. Take note of the webhook `URL` and `token` on this page for use later.
 
+You should also edit your webhook settings on GitHub by going to
+`https://github.com/USERNAME/REPONAME/settings/hooks` and clicking "Edit"
+next to the ReadTheDocs hook. On that page, you should un-check the `Pushes`
+option.
+
 ### 2. Set up GitHub Actions workflow
 
 In this example, we'll assume that we have tutorials written as Jupyter

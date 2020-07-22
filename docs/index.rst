@@ -41,6 +41,11 @@ Usage
 4. Take note of the webhook ``URL`` and ``token`` on this page for use
    later.
 
+You should also edit your webhook settings on GitHub by going to
+``https://github.com/USERNAME/REPONAME/settings/hooks`` and clicking "Edit"
+next to the ReadTheDocs hook. On that page, you should un-check the
+``Pushes`` option.
+
 2. Set up GitHub Actions workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
