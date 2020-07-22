@@ -95,6 +95,7 @@ jobs:
         with:
           webhook_url: ${{ secrets.RTDS_WEBHOOK_URL }}
           webhook_token: ${{ secrets.RTDS_WEBHOOK_TOKEN }}
+          commit_ref: ${{ github.ref }}
 ```
 
 Here, we're also assuming that we've added a `pip` requirements file at
