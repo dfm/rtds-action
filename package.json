@@ -4,7 +4,7 @@
   "description": "Interface GitHub Actions and ReadTheDocs",
   "main": "index.js",
   "scripts": {
-    "package": "ncc build index.js"
+    "package": "ncc build src/js/index.js"
   },
   "repository": {
     "type": "git",

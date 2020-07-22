@@ -9,3 +9,4 @@ This is just a demo.
    :caption: Tutorials
 
    tutorials/tutorial
+   tutorials/another-tutorial

@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
-extensions = ["nbsphinx"]
+import os
+
+extensions = ["nbsphinx", "rtds_action"]
+
+rtds_action_github_repo = "dfm/rtds-action"
+rtds_action_path = "tutorials"
+rtds_action_artifact_prefix = "notebooks-for-"
+rtds_action_github_token = os.environ.get("GITHUB_TOKEN", None)
 
 source_suffix = ".rst"
 master_doc = "index"
