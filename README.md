@@ -1,4 +1,4 @@
-# Interface GitHub Actions and ReadTheDocs
+# Interface ReadTheDocs and GitHub Actions
 
 I like to use [ReadTheDocs](https://readthedocs.org/) to build (and version!) my
 docs, but I _also_ like to use [Jupyter notebooks](https://jupyter.org/) to
@@ -22,6 +22,13 @@ three pieces that make it a bit easier:
 3. Some documentation that shows you how to set all this up!
 
 ## Usage
+
+The following gives the detailed steps of the process of setting up a project
+using this workflow. But you can also see a fully functional example in this
+repository. The documentation source is the `docs` directory and the
+`.github/workflows` directory includes a workflow that is executed to build the
+docs using this package. The rendered page is available at
+[rtds-action.readthedocs.io](https://rtds-action.readthedocs.io).
 
 ### 1. Set up ReadTheDocs
 
@@ -130,3 +137,7 @@ needs the `public_repo` scope if your repo is public). You can generate a new
 token by going to [your GitHub settings
 page](https://github.com/settings/tokens). Then, save it as an environment
 variable (called `GITHUB_TOKEN` in this case) on ReadTheDocs.
+
+## Development
+
+For now, just a note: if you edit `src/js/index.js`, you _must_ run `npm run package` to generate the compiled action source.
