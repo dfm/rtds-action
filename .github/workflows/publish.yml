@@ -1,4 +1,4 @@
-name: Tests
+name: Publish
 on:
   push:
     branches:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name: Build source distribution
+    name: Build source distribution and universal wheel
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,14 +30,14 @@ jobs:
       - name: Test the sdist
         run: |
           python -m venv venv-sdist
-          venv-sdist/bin/python -m pip install dist/corner*.tar.gz
-          venv-sdist/bin/python -c "import corner;print(corner.__version__)"
+          venv-sdist/bin/python -m pip install dist/rtds_action*.tar.gz
+          venv-sdist/bin/python -c "import rtds_action;print(rtds_action.__version__)"
 
       - name: Test the wheel
         run: |
           python -m venv venv-wheel
-          venv-wheel/bin/python -m pip install dist/corner*.whl
-          venv-wheel/bin/python -c "import corner;print(corner.__version__)"
+          venv-wheel/bin/python -m pip install dist/rtds_action*.whl
+          venv-wheel/bin/python -c "import rtds_action;print(rtds_action.__version__)"
 
       - uses: actions/upload-artifact@v2
         with:
