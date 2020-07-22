@@ -42,7 +42,7 @@ def config_inited(app, config):
         params=dict(per_page=100),
     )
     if r.status_code != 200:
-        logger.warn("Can't list files")
+        logger.warn(f"Can't list files ({r.status_code})")
         return
 
     expected_name = f"{prefix}{git_hash}"
@@ -54,6 +54,11 @@ def config_inited(app, config):
                 artifact["archive_download_url"],
                 headers={"Authorization": f"token {token}"},
             )
+
+            if r.status_code != 200:
+                logger.warn(f"Can't download artifact ({r.status_code})")
+                return
+
             with ZipFile(BytesIO(r.content)) as f:
                 f.extractall(path=path)
 

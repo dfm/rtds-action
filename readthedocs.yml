@@ -3,6 +3,6 @@ version: 2
 python:
   version: 3.7
   install:
-    - requirements: requirements-rtds.txt
+    - requirements: docs/requirements.txt
     - method: pip
       path: .

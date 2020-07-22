@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install -U pip
-          python -m pip install -r requirements-gha.txt
+          python -m pip install -r .github/workflows/requirements.txt
 
       - name: Execute the notebooks
         run: |
