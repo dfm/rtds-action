@@ -1,5 +1,7 @@
 # Interface ReadTheDocs and GitHub Actions
 
+[![Documentation Status](https://readthedocs.org/projects/rtds-action/badge/?version=latest)](https://rtds-action.readthedocs.io/en/latest/?badge=latest)
+
 I like to use [ReadTheDocs](https://readthedocs.org/) to build (and version!) my
 docs, but I _also_ like to use [Jupyter notebooks](https://jupyter.org/) to
 write tutorials. Unfortunately, this has always meant that I needed to check
