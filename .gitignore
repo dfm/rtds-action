@@ -1,3 +1,5 @@
 *.ipynb
 node_modules
 rtds_action_version.py
+build
+dist

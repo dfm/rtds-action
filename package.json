@@ -2,9 +2,9 @@
   "name": "rtds-action",
   "version": "0.1.0",
   "description": "Interface GitHub Actions and ReadTheDocs",
-  "main": "index.js",
+  "main": "src/js/index.js",
   "scripts": {
-    "package": "ncc build src/js/index.js"
+    "package": "ncc build src/js/index.js -o compiled"
   },
   "repository": {
     "type": "git",

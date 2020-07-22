@@ -41,7 +41,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          path: dist/*
+          path: dist/rtds_action*
 
   upload_pypi:
     needs: [build]

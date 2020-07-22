@@ -1,0 +1,7 @@
+include README.rst LICENSE *.toml
+
+exclude *.yml dist/*.js .gitignore *.json
+recursive-exclude docs *
+recursive-exclude .github *
+recursive-exclude src/js *
+
