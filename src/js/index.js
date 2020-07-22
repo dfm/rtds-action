@@ -3,15 +3,14 @@ const github = require("@actions/github");
 const fetch = require("node-fetch");
 
 try {
-  const webhookId = core.getInput("webhook_id", { required: true });
+  const webhookUrl = core.getInput("webhook_url", { required: true });
   const webhookToken = core.getInput("webhook_token", { required: true });
 
   // Extract the branch name from the ref
   const ref = github.context.payload.ref;
   const branchname = ref.split("/").slice(2).join("/");
 
-  // Format the URL and parameters
-  const url = `https://readthedocs.org/api/v2/webhook/${webhookId}/`;
+  // Format the request parameters
   const params = new URLSearchParams();
   params.append("branches", branchname);
   params.append("token", webhookToken);
@@ -19,7 +18,7 @@ try {
   // Execute the request
   (async () => {
     try {
-      const response = await fetch(url, {
+      const response = await fetch(webhookUrl, {
         method: "POST",
         body: params,
       });
