@@ -66,8 +66,8 @@ def config_inited(app, config, retries=3):
             return
 
     logger.warn(
-        "rtds_action: can't find expected artifact '{expected_name}' "
-        "at https://api.github.com/repos/{repo}/actions/artifacts"
+        f"rtds_action: can't find expected artifact '{expected_name}' "
+        f"at https://api.github.com/repos/{repo}/actions/artifacts"
     )
     if retries > 0:
         logger.warn("Tying again")
