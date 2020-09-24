@@ -3,6 +3,7 @@
 __all__ = ["setup"]
 
 import subprocess
+import time
 from io import BytesIO
 from zipfile import ZipFile
 
@@ -13,7 +14,7 @@ from sphinx.errors import ExtensionError
 logger = logging.getLogger(__name__)
 
 
-def config_inited(app, config):
+def config_inited(app, config, retries=3):
     prefix = config["rtds_action_artifact_prefix"]
     path = config["rtds_action_path"]
     repo = config["rtds_action_github_repo"]
@@ -64,7 +65,14 @@ def config_inited(app, config):
 
             return
 
-    logger.warn("rtds_action: can't find expected artifact")
+    logger.warn(
+        "rtds_action: can't find expected artifact '{expected_name}' "
+        "at https://api.github.com/repos/{repo}/actions/artifacts"
+    )
+    if retries > 0:
+        logger.warn("Tying again")
+        time.sleep(30)
+        config_inited(app, config, retries=retries - 1)
 
 
 def setup(app):
