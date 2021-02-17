@@ -70,7 +70,7 @@ def config_inited(app, config, retries=3):
         f"at https://api.github.com/repos/{repo}/actions/artifacts"
     )
     if retries > 0:
-        logger.warn("Tying again")
+        logger.warn("Trying again")
         time.sleep(30)
         config_inited(app, config, retries=retries - 1)
 
