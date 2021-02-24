@@ -135,6 +135,10 @@ rtds_action_artifact_prefix = "notebooks-for-"
 
 # A GitHub personal access token is required, more info below
 rtds_action_github_token = os.environ["GITHUB_TOKEN"]
+
+# Whether or not to raise an error on ReadTheDocs if the
+# artifact containing the notebooks can't be downloaded (optional)
+rtds_action_error_if_missing = False
 ```
 
 Where we have added the custom extension and set the required configuration
