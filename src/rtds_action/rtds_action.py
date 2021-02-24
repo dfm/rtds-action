@@ -18,6 +18,7 @@ def config_inited(app, config, retries=3):
     prefix = config["rtds_action_artifact_prefix"]
     path = config["rtds_action_path"]
     repo = config["rtds_action_github_repo"]
+    raise_error = config["rtds_action_error_if_missing"]
     if repo is None:
         raise ExtensionError(
             "rtds_action: missing required argument 'rtds_action_github_repo'"
@@ -73,7 +74,12 @@ def config_inited(app, config, retries=3):
         logger.warn("Trying again")
         time.sleep(30)
         config_inited(app, config, retries=retries - 1)
-
+    else:
+        if raise_error:
+            raise Exception(
+                f"rtds_action: can't find expected artifact '{expected_name}' "
+                f"at https://api.github.com/repos/{repo}/actions/artifacts"
+            )
 
 def setup(app):
     app.add_config_value("rtds_action_artifact_prefix", "", rebuild="env")
