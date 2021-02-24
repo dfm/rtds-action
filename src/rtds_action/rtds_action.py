@@ -86,4 +86,5 @@ def setup(app):
     app.add_config_value("rtds_action_path", ".", rebuild="env")
     app.add_config_value("rtds_action_github_repo", None, rebuild="env")
     app.add_config_value("rtds_action_github_token", None, rebuild="env")
+    app.add_config_value("rtds_action_error_if_missing", False, rebuild="env")
     app.connect("config-inited", config_inited)
