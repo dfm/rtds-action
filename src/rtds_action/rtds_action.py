@@ -42,6 +42,7 @@ def config_inited(app, config, retries=3):
     r = requests.get(
         f"https://api.github.com/repos/{repo}/actions/artifacts",
         params=dict(per_page=100),
+        headers={"Authorization": f"token {token}"},
     )
     if r.status_code != 200:
         logger.warn(f"Can't list files ({r.status_code})")
