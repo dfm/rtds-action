@@ -1,9 +1,9 @@
-# Interface ReadTheDocs and GitHub Actions
+# Interface Read the Docs and GitHub Actions
 
 [![Docs](https://github.com/dfm/rtds-action/workflows/Docs/badge.svg)](https://github.com/dfm/rtds-action/actions?query=workflow%3ADocs)
 [![Documentation Status](https://readthedocs.org/projects/rtds-action/badge/?version=latest)](https://rtds-action.readthedocs.io/en/latest/?badge=latest)
 
-I like to use [ReadTheDocs](https://readthedocs.org/) to build (and version!) my
+I like to use [Read the Docs](https://readthedocs.org/) to build (and version!) my
 docs, but I _also_ like to use [Jupyter notebooks](https://jupyter.org/) to
 write tutorials. Unfortunately, this has always meant that I needed to check
 executed notebooks (often with large images) into my git repository, causing
@@ -13,13 +13,13 @@ sync with the development of the code. **No more!!**
 _This library avoids these issues by executing code on [GitHub
 Actions](https://github.com/features/actions), uploading build artifacts (in
 this case, executed Jupter notebooks), and then (only then!) triggering a
-ReadTheDocs build that can download the executed notebooks._
+Read the Docs build that can download the executed notebooks._
 
 There is still some work required to set up this workflow, but this library has
 three pieces that make it a bit easier:
 
 1. A GitHub action that can be used to trigger a build for the current branch on
-   ReadTheDocs.
+   Read the Docs.
 2. A Sphinx extension that interfaces with the GitHub API to download the
    artifact produced for the target commit hash.
 3. Some documentation that shows you how to set all this up!
@@ -33,11 +33,11 @@ repository. The documentation source is the `docs` directory and the
 docs using this package. The rendered page is available at
 [rtds-action.readthedocs.io](https://rtds-action.readthedocs.io).
 
-### 1. Set up ReadTheDocs
+### 1. Set up Read the Docs
 
 1. First, you'll need to import your project as usual. If you've already done
-   that, don't worry: this will also work with existing ReadTheDocs projects.
-2. Next, go to the admin page for your project on ReadTheDocs, click on
+   that, don't worry: this will also work with existing Read the Docs projects.
+2. Next, go to the admin page for your project on Read the Docs, click on
    `Integrations` (the URL is something like
    `https://readthedocs.org/dashboard/YOUR_PROJECT_NAME/integrations/`).
 3. Click `Add integration` and select `Generic API incoming webhook`.
@@ -45,7 +45,7 @@ docs using this package. The rendered page is available at
 
 You should also edit your webhook settings on GitHub by going to
 `https://github.com/USERNAME/REPONAME/settings/hooks` and clicking "Edit"
-next to the ReadTheDocs hook. On that page, you should un-check the `Pushes`
+next to the Read the Docs hook. On that page, you should un-check the `Pushes`
 option.
 
 ### 2. Set up GitHub Actions workflow
@@ -56,7 +56,7 @@ notebooks, saved as Python scripts using
 that's probably what you should be doing anyways!) in a directory called
 `docs/tutorials`.
 
-First, you'll need to add the ReadTheDocs webhook URL and token that you
+First, you'll need to add the Read the Docs webhook URL and token that you
 recorded above as "secrets" for your GitHub project by going to the URL
 `https://github.com/USERNAME/REPONAME/settings/secrets`. I'll call them
 `RTDS_WEBHOOK_URL` (include the `https`!) and `RTDS_WEBHOOK_TOKEN` respectively.
@@ -136,7 +136,7 @@ rtds_action_artifact_prefix = "notebooks-for-"
 # A GitHub personal access token is required, more info below
 rtds_action_github_token = os.environ["GITHUB_TOKEN"]
 
-# Whether or not to raise an error on ReadTheDocs if the
+# Whether or not to raise an error on Read the Docs if the
 # artifact containing the notebooks can't be downloaded (optional)
 rtds_action_error_if_missing = False
 ```
@@ -144,11 +144,11 @@ rtds_action_error_if_missing = False
 Where we have added the custom extension and set the required configuration
 parameters.
 
-You'll need to provide ReadTheDocs with a GitHub personal access token (it only
+You'll need to provide Read the Docs with a GitHub personal access token (it only
 needs the `public_repo` scope if your repo is public). You can generate a new
 token by going to [your GitHub settings
 page](https://github.com/settings/tokens). Then, save it as an environment
-variable (called `GITHUB_TOKEN` in this case) on ReadTheDocs.
+variable (called `GITHUB_TOKEN` in this case) on Read the Docs.
 
 ## Development
 
