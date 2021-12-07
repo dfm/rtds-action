@@ -5,8 +5,11 @@
 
 I like to use [Read the Docs](https://readthedocs.org/) to build (and version!) my
 docs, but I _also_ like to use [Jupyter notebooks](https://jupyter.org/) to
-write tutorials. Unfortunately, some of these notebooks take a very long time to run
-or need special environments to execute, and in these cases I needed to check
+write tutorials. Unfortunately, even though
+[notebooks can be executed on Read the Docs](https://docs.readthedocs.io/en/stable/guides/jupyter.html),
+some of them take a very long time to run or
+need special Docker environments to execute,
+which goes beyond what the platform supports. In these cases I needed to check
 executed notebooks (often with large images) into my git repository, causing
 huge amounts of bloat. Futhermore, the executed notebooks would often get out of
 sync with the development of the code. **No more!!**
