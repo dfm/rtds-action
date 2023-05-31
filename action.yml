@@ -11,5 +11,5 @@ inputs:
     description: "The reference for the current commit"
     required: true
 runs:
-  using: "node12"
+  using: "node16"
   main: "compiled/index.js"
