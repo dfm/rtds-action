@@ -13,8 +13,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - run: npm install
-      - run: npm run package
+      - run: |
+          npm install
+          npm i -g @vercel/ncc
+      - run: ncc build src/js/index.js --out compiled
       - uses: actions/upload-artifact@v3
         with:
           name: compiled
