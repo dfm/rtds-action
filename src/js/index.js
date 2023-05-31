@@ -1,6 +1,5 @@
 const core = require("@actions/core");
-// const github = require("@actions/github");
-const fetch = require("node-fetch");
+import fetch from 'node-fetch';
 
 try {
   const webhookUrl = core.getInput("webhook_url", { required: true });
