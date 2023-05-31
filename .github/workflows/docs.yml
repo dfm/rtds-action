@@ -35,7 +35,7 @@ jobs:
           path: docs/tutorials
 
       - name: Trigger RTDs build
-        if: github.ref == 'refs/heads/main'
+        if: github.event_name != 'pull_request'
         uses: ./
         with:
           webhook_url: ${{ secrets.RTDS_WEBHOOK_URL }}
