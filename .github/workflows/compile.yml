@@ -1,0 +1,32 @@
+name: Compile
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3   
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: |
+          npm install
+          npm i -g @vercel/ncc
+      - run: ncc build src/js/index.js --out compiled
+      - uses: actions/upload-artifact@v3
+        with:
+          name: compiled
+          path: compiled/index.js
+      - if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: branch
+          folder: compiled
+          target-folder: compiled
