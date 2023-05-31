@@ -3,4 +3,4 @@ matplotlib
 jupyter
 nbconvert
 jupytext
-sklearn
+scikit-learn
