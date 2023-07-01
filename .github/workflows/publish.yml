@@ -41,7 +41,7 @@ jobs:
           venv-wheel/bin/python -m pip install dist/rtds_action*.whl
           venv-wheel/bin/python -c "import rtds_action;print(rtds_action.__version__)"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: dist/rtds_action*
 
