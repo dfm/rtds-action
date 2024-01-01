@@ -29,7 +29,7 @@ jobs:
         run: |
           jupytext --to ipynb --execute docs/tutorials/*.py
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: notebooks-for-${{ github.sha }}
           path: docs/tutorials
