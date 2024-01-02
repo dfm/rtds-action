@@ -20,7 +20,7 @@ jobs:
           npm install
           npm i -g @vercel/ncc
       - run: ncc build src/js/index.js --out compiled
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: compiled
           path: compiled/index.js
